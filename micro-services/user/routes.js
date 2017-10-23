@@ -13,15 +13,6 @@ router.use(function (req, res, next) {
 	next();
 });
 
-router.get('/get_one/:id', (req, res) => {
-	var id = Number(req.params.id);
-	controller.get_one(id);
-});
-
-router.get('/get_all', (req, res) => {
-	controller.get_all();
-});
-
 router.post('/create', (req, res) => {
 	controller.create(req.body);
 });

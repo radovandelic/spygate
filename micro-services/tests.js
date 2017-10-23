@@ -4,12 +4,13 @@ var app = express();
 var guest = require("./guest");
 var user = require("./user");
 var admin = require("./admin");
-var auth = require("./authentification");
+//var auth = require("./authentification");
 
-app.use(auth);
-app.use("/admin", admin);
-app.use("/user", user);
-app.use("/guest", guest);
+//app.use(auth);
+var username = "user"
+app.use("/admin", admin, user, guest);
+app.use("/" + username, user, guest);
+app.use("/", guest);
 
 
 app.use(function(req, res) {
